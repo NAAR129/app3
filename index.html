@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head id="Head"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title></title>
+    <script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    <style>
+        .graphbox {
+            width: 50%;
+            height: 0;
+            padding-bottom: 50%;
+			float:left;
+        }
+		.graphbox2 {
+            width: 45%;
+            height: 0;
+            padding-bottom: 25%;
+			float:left;
+        }
+	    .graphbox3 {
+            width: 45%;
+            height: 0;
+            padding-bottom:25%;
+			float:left;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div id="box" class="jxgbox graphbox"></div>
+<div id="box2" class="jxgbox graphbox2"></div>
+<div id="box3" class="jxgbox graphbox3"></div>
+
+
+
+<script type="text/javascript">
+   
+board = JXG.JSXGraph.initBoard('box', {boundingbox: [-10, 10, 10, -10], axis:true,showCopyright:false,showNavigation:false});
+board2 = JXG.JSXGraph.initBoard('box2', {boundingbox: [-10, 10, 10, -10], axis:true,showCopyright:false,showNavigation:false});
+board3 = JXG.JSXGraph.initBoard('box3', {boundingbox: [-10, 10, 10, -10], axis:true,showCopyright:false,showNavigation:false});
+
+
+a = board.create('slider',[[-7,-5],[7,-5],[-5,0,5]], {name:'a'}),
+b = board.create('slider',[[-7,-7],[7,-7],[0,200,1000]], {name:'b'}),
+c = board.create('slider',[[-7,-9],[7,-9],[0,1,1]], {name:'c'}),
+
+//    f = brd.create('functiongraph',[function(x){
+//            return a.Value()*x*x + b.Value()*x + c.Value();
+//        }]);
+
+g = board.create('functiongraph',[function(x){
+                                  return Math.exp(a.Value() * x) + (c.Value())*(Math.sin((b.Value()/100)*x));
+                                  }],{strokeColor: '#0000FF',strokeWidth: 3});
+                                  
+                                  board.create('text',[-9,9,'m(x)=f(x) # g(x)'],{fontSize:25});
+                                  
+                                  
+                                  
+                                  g1b2 = board2.create('functiongraph',[function(x){
+                                                                        return Math.exp(a.Value() * x);
+                                                                        }], {strokeColor: '#FF0000', strokeWidth: 3});
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                g1b3 = board3.create('functiongraph',[function(x){
+                                                                      return (c.Value())*(Math.sin((b.Value()/100)*x));
+                                                                        }], {strokeColor: '#00FF00', strokeWidth: 3});
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                        
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              board.addChild(board2);
+                                                                                                              board.addChild(board3);
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+
+
+		
+		
+		
+		
+		
+        var resize = function () {
+            board.resizeContainer(board.containerObj.clientWidth, board.containerObj.clientHeight, true);
+            board.fullUpdate();
+        };
+
+        window.onresize = resize;
+</script>
+</body>
+</html>
